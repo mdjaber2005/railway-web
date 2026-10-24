@@ -1,0 +1,86 @@
+/* Base Font */
+body { font-family: 'Outfit', sans-serif; }
+
+/* 1. Glassmorphism Navigation */
+.glass-nav {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 2. Glassmorphism Panels (Search Box & Empty States) */
+.glass-panel {
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* 3. Glass Button */
+.glass-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+.glass-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+/* 4. Custom Scrollbar for Results */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #059669; }
+
+/* 5. Train Result Card Hover Effect */
+.train-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.train-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.4), 0 0 15px rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* 6. Ticket Perforated Edges */
+.ticket-container {
+    position: relative;
+}
+.ticket-divider::before, .ticket-divider::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: #0f172a; /* Matches dark background */
+    border-radius: 50%;
+}
+.ticket-divider::before { left: -10px; }
+.ticket-divider::after { right: -10px; }
+.ticket-divider {
+    border-top: 2px dashed #e2e8f0;
+    width: 100%;
+}
+
+/* 7. Fake Barcode Pattern */
+.barcode {
+    background-image: repeating-linear-gradient(to right, #1e293b, #1e293b 2px, transparent 2px, transparent 4px, #1e293b 4px, #1e293b 6px, transparent 6px, transparent 10px, #1e293b 10px, #1e293b 14px, transparent 14px, transparent 16px);
+}
+
+/* 8. Modal Animations */
+#ticketModal.active { display: flex; opacity: 1; }
+#ticketModal.active #ticketCard { transform: scale(1); }
+
+/* 9. Loading Spinner */
+.spinner {
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #10b981;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
